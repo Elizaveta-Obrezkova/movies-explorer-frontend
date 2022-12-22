@@ -1,0 +1,183 @@
+.technology {
+    max-width: 1280px;
+    min-height: 625px;
+    box-sizing: border-box;
+    padding: 100px 70px 0;
+    background-color: #F5F5F5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page__technology {
+    margin: 0 auto;
+}
+
+.technology__header {
+    font-family: 'Inter', Arial, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.125;
+    letter-spacing: -0.04em;
+    color: #000000;
+    width: 100%;
+    margin: 0;
+    padding: 2px 0 23px;
+    border-bottom: 1px solid #000;
+}
+
+.technology__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.technology__subtitle {
+    font-family: 'Inter', Arial, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 1.16;
+    text-align: center;
+    letter-spacing: -0.04em;
+    color: #000000;
+    margin: 90px 0 0;
+    padding: 0;
+    max-width: 600px;
+}
+
+.technology__about-learning {
+    font-family: 'Inter', Arial, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.4286;
+    text-align: center;
+    letter-spacing: -0.04em;
+    color: #000000;
+    margin: 26px 0 0;
+    padding: 0;
+    max-width: 460px;
+}
+
+.technology__list {
+    display: flex;
+    list-style: none;
+    padding: 100px 0 0;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.technology__skill {
+    min-width: 90px;
+    min-height: 60px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 21px 0 0;
+    background-color: #E8E8E8;
+    border-radius: 10px;
+    font-family: 'Inter', Arial, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2143;
+    text-align: center;
+    letter-spacing: -0.04em;
+    color: #000;
+}
+
+@media screen and (max-width: 870px) {
+    .technology {
+        min-height: 567px;
+        padding: 90px 50px 0;
+    }
+
+    .technology__subtitle {
+        margin: 80px 0 0;
+
+    }
+
+    .technology__about-learning {
+        margin: 22px 0 0;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .technology__list {
+        padding: 83px 0 0;
+    }
+
+    .technology__skill {
+        min-width: 84px;
+        min-height: 57px;
+        font-size: 12px;
+        line-height: 1.25;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+
+    .technology {
+        min-height: 651px;
+        padding: 70px 18px 0;
+        background-color: #FAFAFA;
+    }
+
+    .technology__header {
+        font-size: 18px;
+        line-height: 1.2222;
+        letter-spacing: -0.04em;
+        padding: 0 0 28px;
+    }
+    
+
+    .technology__list {
+        max-width: 178px;
+        margin: 0 auto;
+        padding: 50px 0 0;
+        justify-content: start;
+    }
+
+    .technology__subtitle {
+        font-size: 30px;
+        line-height: 1.2;
+        margin: 60px 0 0;
+        max-width: 292px;
+    }
+
+    .technology__about-learning {
+        font-size: 11px;
+        line-height: 1.4545;
+        margin: 25px 0 0;
+        max-width: 292px;
+    }
+    
+}
