@@ -10,7 +10,7 @@ import Register from '../Register/Register'
 import Profile from '../Profile/Profile'
 import NotFound from '../NotFound/NotFound'
 import { Route, Switch, useLocation } from 'react-router-dom';
-import { movies, savedMovies} from '../../utils/constants';
+import { movies, savedMovies } from '../../utils/constants';
 
 function App() {
 
@@ -26,19 +26,26 @@ function App() {
                 </Route>
                 <Route path="/movies">
                     <Header />
-                    <SearchForm />
-                    <MoviesCardList cards={movies} buttonCardLike={true}/>
+                    <main>
+                        <SearchForm />
+                        <MoviesCardList cards={movies} buttonCardLike={true} />
+                    </main>
                     <Footer />
                 </Route>
                 <Route path="/saved-movies">
                     <Header />
-                    <SearchForm />
-                    <MoviesCardList cards={savedMovies}/>
+                    <main>
+                        <SearchForm />
+                        <MoviesCardList cards={savedMovies} />
+                    </main>
                     <Footer />
                 </Route>
                 <Route path="/profile">
                     <Header />
-                    <Profile name="Елизавета" email="12345@mail.ru"/>
+                    <main>
+                        <Profile name="Елизавета" email="12345@mail.ru" />
+                    </main>
+
                 </Route>
 
                 <Route path="/signup">

@@ -149,7 +149,7 @@
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 545px) {
     .about-project {
         padding: 70px 18px 0;
         min-height: 641px;

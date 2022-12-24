@@ -178,7 +178,7 @@
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 545px) {
     
     .about-me {
         min-height: 1198px;
@@ -197,7 +197,7 @@
     }
 
     .about-me__data {
-        max-width: 292px;
+        max-width: 100%;
         gap: 20px;
     }
 
@@ -227,4 +227,12 @@
         min-height: 352px;
         width: 100%;
     }
+}
+
+@media screen and (max-width: 500px) {
+
+    .about-me__data {
+        max-width: 292px;
+    }
+
 }

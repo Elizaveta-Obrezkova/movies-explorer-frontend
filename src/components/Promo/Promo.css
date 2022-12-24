@@ -1,5 +1,6 @@
 .project {
     max-width: 1280px;
+    min-width: 320px;
     min-height: 634px;
     background-color: #DDDEE3;
     box-sizing: border-box;
@@ -128,7 +129,7 @@
 
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 545px) {
     .project {
         min-height: 704px;
     }
