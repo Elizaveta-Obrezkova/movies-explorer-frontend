@@ -1,0 +1,208 @@
+.about-project {
+    max-width: 1280px;
+    min-height: 608px;
+    box-sizing: border-box;
+    padding: 110px 70px 0;
+}
+
+.page__about-project {
+    margin: 0 auto;
+}
+
+.about-project__header {
+    font-family: 'Inter', Arial, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.125;
+    letter-spacing: -0.04em;
+    color: #000000;
+    width: 100%;
+    margin: 0;
+    padding: 2px 0 23px;
+    border-bottom: 1px solid #000;
+}
+
+.about-project__description {
+    display: grid;
+    margin: 70px 0 0;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px 40px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.about-project__subtitle {
+    font-family: 'Inter', Arial, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+    color: #000000;
+    padding: 0;
+    margin: 0;
+}
+
+.about-project__specification {
+    font-family: 'Inter', Arial, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.43;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+.about-project__diagram {
+    display: grid;
+    margin: 110px 0 0;margin: 110px 0 0;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 36px auto;
+    gap: 0;
+    padding: 0;
+    justify-items: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.about-project__unit {
+    font-family: 'Inter', Arial, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2143;
+    text-align: center;
+    color: #000000;
+    margin: 0;
+    padding: 9px 0;
+    width: 100%;
+    background-color: #F2F2F2;
+}
+
+.about-project__unit_theme_blue {
+    color: #FFF;
+    background-color: #3456F3;
+}
+
+.about-project__detail {
+    font-family: 'Inter', Arial, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.21;
+    text-align: center;
+    color: #A0A0A0;
+    margin: 0;
+    padding: 14px 0 0;
+}
+
+@media screen and (max-width: 768px) {
+    .about-project {
+        padding: 90px 50px 0;
+        min-height: 585px;
+    }
+
+    .about-project__description {
+        gap: 22px 30px;
+    }
+
+    .about-project__diagram {
+        grid-template-columns: 140px 1fr;
+        margin: 93px 0 0;
+    }
+
+    .about-project__specification {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+}
+
+@media screen and (max-width: 545px) {
+    .about-project {
+        padding: 70px 18px 0;
+        min-height: 641px;
+    }
+
+    .about-project__header {
+        font-size: 18px;
+        line-height: 1.2222;
+        padding: 0px 0 28px;
+    }
+
+    .about-project__description {
+        margin: 60px 0 0;
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .about-project__subtitle {
+        font-size: 18px;
+        line-height: 1.2222;
+    }
+
+    .about-project__subtitle:last-of-type {
+        order: 1;
+    }
+
+    .about-project__specification {
+        font-size: 11px;
+        line-height: 1.4545;
+        margin: 0 0 40px;
+    }
+    
+
+    .about-project__specification:last-of-type {
+        order: 1;
+    }
+
+    .about-project__diagram {
+        grid-template-columns: 100px 1fr;
+        margin: 20px 0 0;
+    }
+
+    .about-project__unit {
+        font-size: 11px;
+        line-height: 1.1818;
+        padding: 11px 0;
+    }
+
+    .about-project__detail {
+        font-weight: 400;
+        font-size: 11px;
+        line-height: 1.1818;
+        padding: 10px 0 0;
+    }
+
+}
