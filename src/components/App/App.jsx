@@ -98,7 +98,6 @@ function App() {
     }, [location])
 
     useEffect(() => {
-        console.log(loggedIn)
         if (!loggedIn) return;
 
         history.push('/movies')
@@ -192,7 +191,7 @@ function App() {
         else return false;
     };
 
-    React.useEffect(() => {
+    useEffect(() => {
         mainApi.getMovies()
             .then((items) => {
                 setSavedMovies(items);
@@ -207,6 +206,7 @@ function App() {
         mainApi.savedMovies(movie)
             .then((newMovie) => {
                 setSavedMovies([newMovie, ...savedMovies]);
+                setSearchedSavedMovies([newMovie, ...savedMovies]);
             })
             .catch((err) => {
                 console.log(err);
@@ -217,6 +217,7 @@ function App() {
         mainApi.deleteMovies(movie._id)
             .then(() => {
                 setSavedMovies((state) => state.filter((c) => c._id !== movie._id));
+                setSearchedSavedMovies((state) => state.filter((c) => c._id !== movie._id));
             })
             .catch((err) => {
                 console.log(err);
@@ -240,6 +241,7 @@ function App() {
             .then((res) => {
                 if (!res) return;
                 setLoggedIn(false);
+                localStorage.clear()
             })
             .then(() => {
                 history.push('/')
