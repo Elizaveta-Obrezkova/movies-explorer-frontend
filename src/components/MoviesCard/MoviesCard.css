@@ -37,8 +37,11 @@
     padding: 0;
     color: #000;
     min-height: 18px;
-    max-width: 240px;
+    max-width: 220px;
     display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .element__duration {
@@ -59,6 +62,13 @@
     display: block;
     margin: 0;
     padding: 0;
+}
+
+.element__link {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
 }
 
 .element__photo {

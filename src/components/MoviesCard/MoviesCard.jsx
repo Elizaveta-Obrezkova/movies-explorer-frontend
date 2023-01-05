@@ -1,34 +1,57 @@
 import React from 'react';
 import './MoviesCard.css';
+import { useLocation } from 'react-router-dom';
 
 function MoviesCard(props) {
 
-    const [like , setLike] = React.useState(false);
+    const [like, setLike] = React.useState(false);
+    const [imageUrl, setImageUrl] = React.useState('');
+    const location = useLocation();
 
     React.useEffect(() => {
-        setLike(props.card.like);
+        if (props.movie.image.url) { setImageUrl(`https://api.nomoreparties.co/${props.movie.image.url}`) }
+        else { setImageUrl(props.movie.image) }
     }, [props]);
 
+    React.useEffect(() => {
+        if (location.pathname !== '/movies') return;
+        if (props.verifyLike(props.movie)) { setLike(true) }
+        else { setLike(false) }
+    }, [props, location]);
+
     function handleLike () {
-        if (like) {
-            setLike(false)
+        if (location.pathname !== '/movies') {
+            props.onDelete(props.movie);
+            return;
         }
-        else {setLike(true)}
+        if (like) {
+            const movie = props.savedMovies.find(function (item) {
+                return item.movieId === props.movie.id;
+            })
+            props.onDelete(movie);
+            setLike(false);
+            return;
+        }
+        else { 
+            props.onLike(props.movie)
+            setLike(true);
+            return;
+        }
     }
 
 
-    console.log(props.button && props.card.like);
 
     return (
         <div className="element">
             <div className="element__info">
-                <h2 className="element__header">{props.card.nameRU}</h2>
-                <p className="element__duration">{props.card.duration} минут</p>
+                <h2 className="element__header">{props.movie.nameRU}</h2>
+                <p className="element__duration">{props.movie.duration} минут</p>
             </div>
-            
-            <img className="element__photo" alt={props.card.nameRU} src={props.card.image} />
-            <button type="button" 
-            className={ !props.button ? "element__button element__button_type_delete" : props.button && like ? "element__button element__button_type_active" : "element__button"} onClick={handleLike}>{ props.button && !like ? "Сохранить" : ""}</button>
+            <a className="element__link" href={props.movie.trailerLink} target="_blank" rel="noreferrer">
+                <img className="element__photo" alt={props.movie.nameRU} src={imageUrl} />
+            </a>
+            <button type="button"
+                className={!props.button ? "element__button element__button_type_delete" : props.button && like ? "element__button element__button_type_active" : "element__button"} onClick={handleLike}>{props.button && !like ? "Сохранить" : ""}</button>
         </div>
     )
 }

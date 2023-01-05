@@ -1,7 +1,7 @@
 .project {
     max-width: 1280px;
     min-width: 320px;
-    min-height: 634px;
+    min-height: 560px;
     background-color: #DDDEE3;
     box-sizing: border-box;
     padding: 0;
@@ -12,70 +12,6 @@
 
 .page__project {
     margin: 0 auto;
-}
-
-.project__nav {
-    width: 100%;
-    display: flex;
-    padding: 18px 70px;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    min-height: 38px;
-}
-
-.project__navigation {
-    min-width: 183px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 32px;
-}
-
-.project__link {
-    font-family: 'Inter', Arial, sans-serif;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
-    text-rendering: optimizeLegibility;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.3333;
-    color: #000;
-    text-decoration: none;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    max-height: 38px;
-    transition: opacity 1s ease;
-}
-
-.project__link:hover {
-    opacity: 0.7;
-}
-
-.project__button {
-    background: #3456F3;
-    border-radius: 3px;
-    margin: 0;
-    padding: 0;
-    min-width: 76px;
-    min-height: 32px;
-    border: none;
-    transition: opacity 1s ease;
-    cursor: pointer;
-}
-
-.project__button:hover {
-    opacity: 0.8;
-}
-
-
-.project__link_theme_white {
-    color: #FFF;
 }
 
 .project__header {
@@ -106,13 +42,10 @@
 }
 
 @media screen and (max-width: 870px) {
-    .project__nav {
-        padding: 18px 30px;
-    }
 
     .project {
         align-items: center;
-        min-height: 918px;
+        min-height: 844px;
     }
 
     .project__header {
@@ -131,27 +64,7 @@
 
 @media screen and (max-width: 545px) {
     .project {
-        min-height: 704px;
-    }
-
-    .project__nav {
-        padding: 18px 14px;
-    }
-
-    .project__navigation {
-        min-width: 132px;
-        min-height: 38px;
-    }
-
-    .project__link {
-        font-size: 10px;
-        line-height: 1.6;
-        max-height: 38px;
-    }
-
-    .project__button {
-        min-width: 54px;
-        min-height: 26px;
+        min-height: 630px;
     }
 
     .project__header {
