@@ -117,6 +117,7 @@ function App() {
     }, [])
 
     useEffect(() => {
+        if (localStorage.getItem('keyword') === null) return;
         if (location.pathname === '/movies') {
             setKeyword(localStorage.getItem('keyword'))
             setSearchedMovies(searchMovie(JSON.parse(localStorage.getItem('movies')),
