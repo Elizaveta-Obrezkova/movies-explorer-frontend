@@ -1,4 +1,4 @@
-export const BASE_URL = "api.elizabeth.diplom.nomoredomains.club"
+export const BASE_URL = "https://api.elizabeth.diplom.nomoredomains.club"
 
 function request({ url, method = 'POST', token, data, error400 = 'что-то пошло не так', error401 = 'что-то пошло не так', error404 = 'Страница по указанному маршруту не найдена.', error409 = 'что-то пошло не так', error500 = 'На сервере произошла ошибка.' }) {
     return fetch(`${BASE_URL}${url}`, {
