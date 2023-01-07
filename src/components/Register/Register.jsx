@@ -12,7 +12,12 @@ function Register(props) {
     function handelSubmit (e) {
         e.preventDefault();
         props.onRegister(values.name, values.email, values.password)
-        resetForm(); 
+        .then((res)=>{
+            if (!res) return;
+            else {
+                resetForm();
+            }
+        })
     };
 
     return (
@@ -29,7 +34,7 @@ function Register(props) {
                 <div className="auth-input-container">
                     <h3 className="auth-input-container__title">E-mail</h3>
                     <input id="email" name="email" type="email" placeholder='Введите Email' value={values.email} onChange={handleChange}
-                        className="auth-form__input auth-form__input_name_owner" required minLength="2" maxLength="40" />
+                        className="auth-form__input auth-form__input_name_owner" required minLength="2" maxLength="40" pattern='^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$'/>
                     <span id="error-email" className="error-message">{errors.email}</span>
                 </div>
                 <div className="auth-input-container">

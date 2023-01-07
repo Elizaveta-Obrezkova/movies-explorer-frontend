@@ -9,10 +9,16 @@ function Login(props) {
 
     const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
 
-    function handleSubmit (e) {
+    function handleSubmit(e) {
         e.preventDefault();
         props.onLogin(values.email, values.password)
-        resetForm();
+            .then((res) => {
+                console.log(res)
+                if (!res) return;
+                else {
+                    resetForm();
+                }
+            })
     }
 
     return (
@@ -23,7 +29,7 @@ function Login(props) {
                 <div className="auth-input-container">
                     <h3 className="auth-input-container__title">E-mail</h3>
                     <input id="email" name="email" type="email" placeholder='Введите Email' value={values.email} onChange={handleChange}
-                        className="auth-form__input auth-form__input_name_owner" required minLength="2" maxLength="40" />
+                        className="auth-form__input auth-form__input_name_owner" required minLength="2" maxLength="40" pattern='^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$' />
                     <span id="error-email" className="error-message">{errors.email}</span>
                 </div>
                 <div className="auth-input-container">

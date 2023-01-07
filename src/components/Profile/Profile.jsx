@@ -53,7 +53,7 @@ function Profile(props) {
                 <div className="input-container">
                     <h3 className="input-container__title">E-mail</h3>
                     <input id="edit-email" name="email" type="email" placeholder='Расскажите о себе' value={values.email || ''} onChange={handleChange}
-                        className="edit-form__input edit-form__input_name_email-owner" required minLength="2" maxLength="200" readOnly={!formActive ? true : false} />
+                        className="edit-form__input edit-form__input_name_email-owner" required minLength="2" maxLength="200" pattern='^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$' readOnly={!formActive ? true : false} />
                     <span id="error-edit-email" className="error-message">{errors.email}</span>
                 </div>
                 <p className="edit-form__message">{props.message}</p>

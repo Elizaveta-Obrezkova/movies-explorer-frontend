@@ -40,17 +40,29 @@ function App() {
     const history = useHistory();
     const location = useLocation();
 
+
     function handleLogin(email, password) {
         return mainApi.authorize(email, password)
             .then((res) => {
                 if (!res) return
+                mainApi.getContent()
+                    .then((res) => {
+                        if (!res) return;
+                        setCurrentUser(res)
+                        setLoggedIn(true);
+                        history.push('/movies')
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
             })
-            .then((res) => {
-                setCurrentUser(res)
-                setLoggedIn(true);
+            .then(() => {
+
+                return true
             })
             .catch(err => {
                 setErrorLogin(err);
+                return false
             })
     };
 
@@ -59,9 +71,11 @@ function App() {
             .then((res) => {
                 if (!res) return;
                 handleLogin(email, password);
+                return true;
             })
             .catch(err => {
                 setErrorRegister(err);
+                return false
             })
     }
 
@@ -72,10 +86,10 @@ function App() {
                     if (!res) return;
                     setCurrentUser(res)
                     setLoggedIn(true);
+                    history.push(location.pathname)
                 })
                 .catch(err => {
                     console.log(err);
-                    setErrorMainApi(true)
                 })
         }
         tokenCheck()
@@ -100,10 +114,6 @@ function App() {
     useEffect(() => {
         if (!loggedIn) return;
 
-        history.push('/movies')
-    }, [history, loggedIn]);
-
-    useEffect(() => {
         moviesApi.getMovies()
             .then((items) => {
                 setMovies(items);
@@ -113,9 +123,10 @@ function App() {
                 console.log(err);
                 setErrorApi(true)
             })
-    }, [])
+    }, [loggedIn])
 
     useEffect(() => {
+        if (!loggedIn) return;
         if (localStorage.getItem('keyword') === null) return;
         if (location.pathname === '/movies') {
             setKeyword(localStorage.getItem('keyword'))
@@ -127,10 +138,10 @@ function App() {
             }
             else {
                 setCheckbox(false);
-            }  
+            }
         }
         else return
-    }, [location])
+    }, [location, loggedIn])
 
     function handleSearchMovie() {
 
@@ -164,6 +175,8 @@ function App() {
     };
 
     function handleSearchSavedMovie() {
+
+
         const delay = (time) => {
             return new Promise((resolve, reject) => setTimeout(resolve, time))
         }
@@ -192,6 +205,8 @@ function App() {
     };
 
     useEffect(() => {
+        if (!loggedIn) return;
+
         mainApi.getMovies()
             .then((items) => {
                 setSavedMovies(items);
@@ -199,8 +214,9 @@ function App() {
             })
             .catch((err) => {
                 console.log(err);
+                setErrorMainApi(true)
             })
-    }, [])
+    }, [loggedIn])
 
     function handleSavedMovie(movie) {
         mainApi.savedMovies(movie)
@@ -241,7 +257,14 @@ function App() {
             .then((res) => {
                 if (!res) return;
                 setLoggedIn(false);
-                localStorage.clear()
+                localStorage.clear();
+                setCurrentUser({});
+                setMovies([]);
+                setSavedMovies([]);
+                setKeyword('');
+                setCheckbox(false);
+                setSearchedMovies([]);
+                setSearchedSavedMovies([]);
             })
             .then(() => {
                 history.push('/')
@@ -271,7 +294,7 @@ function App() {
                     <ProtectedRoute path="/movies" loggedIn={loggedIn}>
                         <Header loggedIn={loggedIn} />
                         <main>
-                            <SearchForm onSearch={handleSearchMovie} changeInput={handleChangeInput} changeCheckbox={handleChangeCheckbox} checkbox={checkbox} input={keyword} error={errorSearchForm}/>
+                            <SearchForm onSearch={handleSearchMovie} changeInput={handleChangeInput} changeCheckbox={handleChangeCheckbox} checkbox={checkbox} input={keyword} error={errorSearchForm} />
                             <MoviesCardList
                                 movies={searchedMovies}
                                 savedMovies={savedMovies}
@@ -280,8 +303,8 @@ function App() {
                                 preloaderActive={isActivePreloader}
                                 onSavedMovie={handleSavedMovie}
                                 onDeleteMovie={handleDeleteMovie}
-                                info={visibleInfo} 
-                                error={errorApi}/>
+                                info={visibleInfo}
+                                error={errorApi} />
                         </main>
                         <Footer />
                     </ProtectedRoute>
@@ -293,7 +316,7 @@ function App() {
                                 movies={searchedSavedMovies}
                                 preloaderActive={isActivePreloader}
                                 onDeleteMovie={handleDeleteMovie}
-                                error={errorMainApi}/>
+                                error={errorMainApi} />
                         </main>
                         <Footer />
                     </ProtectedRoute>
@@ -314,7 +337,7 @@ function App() {
 
 
                     <Route path="*">
-                        <NotFound />
+                        <NotFound loggedIn={loggedIn} />
                     </Route>
                 </Switch>
             </div>
